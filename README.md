@@ -1,4 +1,5 @@
 # NodePlanet
+[![DeepScan grade](https://deepscan.io/api/teams/8946/projects/11181/branches/163245/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=8946&pid=11181&bid=163245)
 
 ## Setup
 
