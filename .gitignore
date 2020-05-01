@@ -7,8 +7,8 @@ tmp
 
 # Environment variables, never commit this file
 .env
-.circleci
 .github
+.circleci
 
 # The development sqlite file
 database/*.sqlite
