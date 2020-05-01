@@ -9,80 +9,20 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   {{ style('foundation') }}
   {{ style('dark-style') }}
-  {{ style('font-awesome.min') }}
 </head>
 <body>
 <div class="site-wrap">
-  <div class="top-bar">
-    <div class="top-bar-left">
-      <div class="grid-x align-middle grid-margin-x">
-        <div class="shrink cell hide-for-large">
-          <button class="menu-icon sidebar-menu-icon" type="button" data-toggle="side-bar" aria-controls="side-bar"></button>
-        </div>
-        <div class="shrink cell menu-logo">
-          <a href="/">
-            <img src="/Planet.png" alt="img when" class="show-for-large" width="175" height="18">
-            <img src="/Planet.png" alt="img when" class="hide-for-large" style="height:32px;">
-          </a>
-        </div>
-        <div class="auto cell no-margin">
-          <input type="text" class="menu-search" id="menu-search" placeholder="Search" onkeyup="searchSite(this.value)">
-          <div class="search-dropdown-parent">
-            <div id="search-dropdown" class="search-dropdown fast" data-toggler="u32dn2-toggler" data-animate="fade-in fade-out" style="display:none;z-index: 100;" aria-expanded="false">
-              <div id="show-recent">
-                <div style="padding:5px 15px;">Search by username, games, store items, and communities</div>
-              </div>
-              <div id="search-dropdown-content"></div>
-            </div>
-          </div>
-        </div>
-        <div class="shrink cell">
-          <ul class="menu align-middle">
-            <li class="menu-login show-for-medium">
-              <div class="menu-log-in">
-                <a href="/account/login">Log In</a>
-              </div>
-            </li>
-            <li class="menu-createaccount show-for-medium">
-              <div class="menu-create-account">
-                <a href="/account/register">Join Now</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="top-bar-push"></div>
+  @include('parts.topbar')
   <div class="grid-x grid-margin-x">
-    <div class="sidebar-shrink shrink cell no-margin">
-      <div class="side-bar" data-toggler="ox1nso-toggler" data-animate="fade-in fade-out" id="side-bar" aria-expanded="true">
-        <div class="side-bar-inner">
-          <ul>
-            <li>
-              <a href="/account/login">
-                <i class="material-icons">person</i>
-                <span>Log In</span>
-              </a>
-            </li>
-            <li>
-              <a href="/account/register">
-                <i class="material-icons">person_add</i>
-                <span>Create Account</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-        <div class="auto cell no-margin">
+    @include('parts.sidebar')
+    <div class="auto cell no-margin">
     <div class="grid-container site-container-margin">
       <div class="main-site-push"></div>
       @!section('content')
     </div>
   </div>
-</div>
-</div>
+@include('parts.footer')
+{{ script('https://kit.fontawesome.com/84513ba4c6.js') }}
 {{ script('https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.min.js') }}
 {{ script('https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.1/js/foundation.min.js') }}
 {{ script('main') }}
