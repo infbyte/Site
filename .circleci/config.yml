@@ -33,6 +33,9 @@ jobs:
 workflows:
     build-and-test:
       jobs:
+        branches:
+          ignore:
+              - preview
         - build-and-test
         - copy-to-preview:
             requires:
