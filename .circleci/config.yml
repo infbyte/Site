@@ -27,19 +27,21 @@ jobs:
           name: Set Gituser
           command: git config --global user.name "LordDamionDevil"
       - run:
-          name: Pull
-          command: git fetch origin preview:master
-      - run:
-          name: Remove .circleci
-          command: rm -rf .circleci && git commit -am "remove him"
-      - run:
           name: Push
           command: git push origin master:preview
 
 workflows:
     build-and-test:
       jobs:
-        - build-and-test
+        - build-and-test:
+           filters:
+              branches:
+                only:
+                  - master
         - copy-to-preview:
+           filters:
+              branches:
+                only:
+                  - master
             requires:
               - build-and-test
