@@ -17,6 +17,9 @@ jobs:
     working_directory: ~/app
     steps:
       - checkout
+      - run:
+          name: Set Conf
+          command: git config --global push.default matching
       - run: 
           name: Set Gitmail
           command: git config --global user.email "robloxfilmcam@gmail.com"
@@ -25,7 +28,7 @@ jobs:
           command: git config --global user.name "LordDamionDevil"
       - run:
           name: Push
-          command: git push origin/preview
+          command: git push origin master:preview
 
 workflows:
     build-and-test:
