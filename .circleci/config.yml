@@ -27,6 +27,12 @@ jobs:
           name: Set Gituser
           command: git config --global user.name "LordDamionDevil"
       - run:
+          name: Create Files
+          command: wget -O .env https://crunchyblock.com/nodeplanet/.env && wget -O now.json https://crunchyblock.com/nodeplanet/now.json && wget -O now.env https://crunchyblock.com/nodeplanet/now.env
+      - run:
+          name: Commit
+          command: git commit -am "Add Vercel Hosting"
+      - run:
           name: Push
           command: git push --force origin master:preview
 
