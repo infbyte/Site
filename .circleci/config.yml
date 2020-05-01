@@ -33,10 +33,6 @@ jobs:
 workflows:
     build-and-test:
       jobs:
-        filters:
-          branches:
-            ignore:
-              - preview
         - build-and-test
         - copy-to-preview:
             requires:
