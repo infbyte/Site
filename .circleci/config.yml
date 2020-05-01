@@ -1,0 +1,38 @@
+version: 2.1
+jobs:
+  build-and-test:
+    docker:
+      - image: circleci/node:latest
+    working_directory: ~/
+    steps:
+      - checkout
+      - run:
+          name: copy env file
+          command: cp .env.example .env
+      - node/with-cache:
+          steps:
+            - run: npm install
+            - run: npm test
+  copy-to-preview:
+    docker:
+     - image: buildpack-deps:trusty
+    working_directory: ~/
+    steps:
+      - checkout
+      - run: 
+          name: Set Gitmail
+          command: git config --global user.email "robloxfilmcam@gmail.com"
+      - run:
+          name: Set Gituser
+          command: git config --global user.name "LordDamionDevil"
+      - run:
+          name: Push
+          command: git push origin/preview
+
+workflows:
+    build-and-test:
+      jobs:
+        - build-and-test
+        - copy-to-preview:
+            requires:
+              - build-and-test
