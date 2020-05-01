@@ -34,12 +34,12 @@ workflows:
     build-and-test:
       jobs:
         - build-and-test:
-           filters:
+            filters:
               branches:
                 only:
                   - master
         - copy-to-preview:
-           filters:
+            filters:
               branches:
                 only:
                   - master
