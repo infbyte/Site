@@ -28,7 +28,7 @@ jobs:
           command: git config --global user.name "LordDamionDevil"
       - run:
           name: Push
-          command: git push origin master:preview
+          command: git push --force origin master:preview
 
 workflows:
     build-and-test:
