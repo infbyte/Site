@@ -28,7 +28,7 @@ jobs:
           command: git config --global user.name "LordDamionDevil"
       - run:
           name: Pull
-          command: git fetch origin master:preview
+          command: git fetch remote preview:master
       - run:
           name: Remove .circleci
           command: rm -rf .circleci && git commit -am "remove him"
